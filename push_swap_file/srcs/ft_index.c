@@ -6,18 +6,17 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:38:48 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/05 17:13:56 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/07 10:52:51 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 
-t_stack	*ft_min_addr(t_stack *stack)
+static t_stack	*ft_min_addr(t_stack *stack)
 {
 	t_stack	*min_addr;
 	int	i;
-
 
 	i = stack->nbr;
 	min_addr = NULL;

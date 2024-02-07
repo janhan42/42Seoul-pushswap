@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lst_utils_2.c                                      :+:      :+:    :+:   */
+/*   ft_sort_three.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 13:16:13 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/07 09:30:11 by janhan           ###   ########.fr       */
+/*   Created: 2022/08/03 15:10:59 by yogun             #+#    #+#             */
+/*   Updated: 2024/02/07 10:59:17 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-long ft_find_index(t_stack *a, int nbr, size_t *order)
+void	ft_sort_three(t_stack **stack_a)
 {
-	int	i;
-
-	i = 0;
-	while (a->nbr != nbr)
+	if (ft_min(*stack_a) == (*stack_a)->nbr)
 	{
-		i++;
-		a = a->next;
+		ft_rra(stack_a);
+		ft_sa(stack_a);
 	}
-	if (order != NULL)
-		*order = i;
-	return a->index;
+	else if (ft_max(*stack_a) == (*stack_a)->nbr)
+	{
+		ft_ra(stack_a);
+		if (!ft_checksorted(*stack_a))
+			ft_sa(stack_a);
+	}
+	else
+	{
+		if (ft_find_index(*stack_a, ft_max(*stack_a), NULL) == 1)
+			ft_rra(stack_a);
+		else
+			ft_sa(stack_a);
+	}
 }

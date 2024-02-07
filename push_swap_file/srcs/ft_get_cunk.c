@@ -6,11 +6,11 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 07:22:46 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/07 09:03:48 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/07 11:00:24 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
 int	ft_get_cunk(t_stack **stack_a)
 {

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_check_dup.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/31 12:17:58 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/08 20:31:02 by yogun            ###   ########.fr       */
+/*   Created: 2022/07/31 12:16:11 by yogun             #+#    #+#             */
+/*   Updated: 2024/02/07 13:30:02 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-// This function frees the stack.
-void	ft_free(t_stack **lst)
+int	ft_checkdup(t_stack *a)
 {
 	t_stack	*tmp;
 
-	if (!lst)
-		return ;
-	while (*lst)
+	while (a)
 	{
-		tmp = (*lst)->next;
-		(*lst)->nbr = 0;
-		free(*lst);
-		*lst = tmp;
+		tmp = a->next;
+		while (tmp)
+		{
+			if (a->nbr == tmp->nbr)
+				return (1);
+			tmp = tmp->next;
+		}
+		a = a->next;
 	}
+	return (0);
 }

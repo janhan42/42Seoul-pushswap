@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_error_print.c                                   :+:      :+:    :+:   */
+/*   ft_check_sorted.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yogun <yogun@student.42heilbronn.de>       +#+  +:+       +#+        */
+/*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/26 20:38:29 by yogun             #+#    #+#             */
-/*   Updated: 2022/08/03 20:55:11 by yogun            ###   ########.fr       */
+/*   Created: 2022/07/30 09:54:08 by yogun             #+#    #+#             */
+/*   Updated: 2024/02/07 10:53:17 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-//Here an error message is being printed out
-void	ft_error(void)
-{	
-	write (2, "Error\n", 6);
-	exit(1);
+int	ft_checksorted(t_stack *stack_a)
+{
+	int	i;
+
+	i = stack_a->nbr;
+	while (stack_a)
+	{
+		if (i > stack_a->nbr)
+			return (0);
+		i = stack_a->nbr;
+		stack_a = stack_a->next;
+	}
+	return (1);
 }

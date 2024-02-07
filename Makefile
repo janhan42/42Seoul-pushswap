@@ -6,7 +6,7 @@
 #    By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/14 13:58:46 by janhan            #+#    #+#              #
-#    Updated: 2024/02/07 09:31:47 by janhan           ###   ########.fr        #
+#    Updated: 2024/02/07 12:29:06 by janhan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,33 +14,26 @@ NAME			=		push_swap
 
 CC				=		cc -g
 
-CFLAGS			=		-Wall -Wextra -Werror
+CFLAGS			=		#-Wall -Wextra -Werror
 
 LIBFT_DIR		=		libft
 LIBFT_A			=		libft/libft.a
 
-SRCS_MAN		=	srcs/push_swap/push_swap.c \
-					srcs/push_swap/algorithm.c \
-					srcs/push_swap/ft_add_back.c \
-					srcs/push_swap/ft_stack_new.c \
-					srcs/push_swap/ft_check_utils.c \
-					srcs/push_swap/ft_parse.c \
-					srcs/push_swap/operations.c \
-					srcs/push_swap/operations_2.c \
-					srcs/push_swap/operations_3.c \
-					srcs/push_swap/ft_check_dup.c \
-					srcs/push_swap/ft_check_sorted.c \
-					srcs/push_swap/ft_error_print.c \
-					srcs/push_swap/ft_free.c \
-					srcs/push_swap/lst_utils.c \
-					srcs/push_swap/lst_utils_2.c \
-					srcs/push_swap/ft_parse_args_quoted.c \
-					srcs/push_swap/ft_list_args.c \
-					srcs/push_swap/ft_check_args.c \
-					srcs/push_swap/ft_sort_big.c \
-					srcs/push_swap/ft_sort_three.c \
-					srcs/push_swap/ft_index.c		\
-					srcs/push_swap/ft_get_cunk.c
+SRCS_MAN		=	push_swap_file/srcs/push_swap.c \
+					push_swap_file/srcs/ft_process.c \
+					push_swap_file/srcs/operations_1.c \
+					push_swap_file/srcs/operations_2.c \
+					push_swap_file/srcs/operations_3.c \
+					push_swap_file/srcs/ft_check_dup.c \
+					push_swap_file/srcs/ft_check_sorted.c \
+					push_swap_file/srcs/ft_error.c \
+					push_swap_file/srcs/ft_stack_utils.c \
+					push_swap_file/srcs/ft_stack_utils_2.c \
+					push_swap_file/srcs/ft_sort_big.c \
+					push_swap_file/srcs/ft_sort_utils.c	\
+					push_swap_file/srcs/ft_sort_three.c \
+					push_swap_file/srcs/ft_index.c		\
+					push_swap_file/srcs/ft_get_cunk.c
 OBJS_MAND		=	$(SRCS_MAN:.c=.o)
 
 SRCS_BONUS		=

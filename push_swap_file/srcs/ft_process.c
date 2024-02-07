@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algorithm.c                                        :+:      :+:    :+:   */
+/*   ft_process.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 16:36:14 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/05 13:59:48 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/07 10:49:13 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int	ft_atoi2(const char *str)
+static int	ft_atoi2(const char *str)
 {
 	int				mod;
 	long long int	i;
@@ -41,7 +41,7 @@ int	ft_atoi2(const char *str)
 	return (mod * i);
 }
 
-t_stack	*ft_sub_process(char **av)
+static t_stack	*ft_sub_process(char **av)
 {
 	t_stack *a;
 	char	**temp;

@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_check_sorted.c                                  :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/30 09:54:08 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/04 09:10:48 by janhan           ###   ########.fr       */
+/*   Created: 2024/02/07 10:44:09 by janhan            #+#    #+#             */
+/*   Updated: 2024/02/07 10:53:48 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap.h"
+#include "../includes/push_swap.h"
 
-int	ft_checksorted(t_stack *stack_a)
+int	main(int ac, char **av)
 {
-	int	i;
+	t_stack	*stack_a;
 
-	i = stack_a->nbr;
-	while (stack_a)
+	stack_a = ft_process(ac, av);
+	if (!stack_a || ft_checkdup(stack_a))
 	{
-		if (i > stack_a->nbr)
-			return (0);
-		i = stack_a->nbr;
-		stack_a = stack_a->next;
+		ft_free(&stack_a);
+		ft_error();
 	}
-	return (1);
+	ft_index(&stack_a);
+	if (!ft_checksorted(stack_a))
+		ft_sort(&stack_a);
+	ft_free(&stack_a);
+	return (0);
 }
