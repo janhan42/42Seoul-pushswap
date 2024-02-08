@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/04 16:36:14 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/07 10:49:13 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 07:11:59 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ static t_stack	*ft_sub_process(char **av)
 	return (a);
 }
 
-t_stack	*ft_process(int argc, char **argv)
+t_stack	*ft_process(int ac, char **av)
 {
 	t_stack	*a;
 	int		i;
@@ -70,15 +70,15 @@ t_stack	*ft_process(int argc, char **argv)
 
 	i = 1;
 	a = NULL;
-	if (argc < 2)
+	if (ac < 2 || (ac == 2 && av[1][0] == '\0'))
 		ft_error();
-	if (argc == 2)
-		a = ft_sub_process(argv);
+	if (ac == 2)
+		a = ft_sub_process(av);
 	else
 	{
-		while (i < argc)
+		while (i < ac)
 		{
-			j = ft_atoi2(argv[i]);
+			j = ft_atoi2(av[i]);
 			ft_add_back(&a, ft_stack_new(j));
 			i++;
 		}

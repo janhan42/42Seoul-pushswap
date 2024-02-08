@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 15:38:48 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/07 10:52:51 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 10:17:14 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,12 @@ void	ft_index(t_stack **stack_a)
 	top = *stack_a;
 	size = ft_stacksize(*stack_a);
 	i = 0;
-	while (size--)
+	while (size > 0)
 	{
 		temp = ft_min_addr(top);
 		temp->index = i;
 		i++;
+		size--;
 		top = *stack_a;
 	}
 }

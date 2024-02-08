@@ -6,11 +6,24 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:44:09 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/07 10:53:48 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 10:22:32 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <stdio.h>
+
+void	print_index(t_stack **stack)
+{
+	t_stack *temp;
+
+	temp = *stack;
+	while (temp)
+	{
+		printf("index : %ld , nbr : %d \n", temp->index, temp->nbr);
+		temp = temp->next;
+	}
+}
 
 int	main(int ac, char **av)
 {
@@ -23,6 +36,7 @@ int	main(int ac, char **av)
 		ft_error();
 	}
 	ft_index(&stack_a);
+	// print_index(&stack_a);
 	if (!ft_checksorted(stack_a))
 		ft_sort(&stack_a);
 	ft_free(&stack_a);
