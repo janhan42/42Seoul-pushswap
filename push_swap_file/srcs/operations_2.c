@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:19:40 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/07 13:27:40 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 18:18:22 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	ft_rr(t_stack **a, t_stack **b)
 {
 	ft_rr_sub(a);
 	ft_rr_sub(b);
-	write(1, "rr\n", 3);
+	// write(1, "rr\n", 3);
+	while(write(1, "rr\n", 3)!=3)
+		continue;
+	// printf("rr\n");
 }
 
 void	ft_rrr_sub(t_stack **a_top)
@@ -43,7 +46,10 @@ void	ft_rrr(t_stack **a, t_stack **b)
 {
 	ft_rrr_sub(a);
 	ft_rrr_sub(b);
-	ft_printf("rrr\n");
+	// ft_printf("rrr\n");
+	while(write(1, "rrr\n", 4)!= 4)
+		continue;
+	// printf("rrr\n");
 }
 
 void	ft_pb(t_stack **a, t_stack **b)
@@ -62,11 +68,16 @@ void	ft_pb(t_stack **a, t_stack **b)
 	if (to_under != NULL)
 		to_under->prev = to_top;
 	*b = to_top;
-	ft_printf("pb\n");
+	while(write(1,"pb\n", 3) != 3)
+		continue;
+	// printf("pb\n");
+	// write(1, "pb\n", 3);
 }
 
 void	ft_rrb(t_stack **b)
 {
 	ft_rrr_sub(b);
-	write(1, "rrb\n", 4);
+	while(write(1, "rrb\n", 4) !=4)
+		continue;
+	// printf("rrb\n");
 }

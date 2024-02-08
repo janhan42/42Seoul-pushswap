@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:56:53 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/07 13:23:30 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 18:19:13 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,9 @@ void	ft_ra(t_stack **a)
 	last->next = first;
 	first->prev = last;
 	first->next = NULL;
-	write(1, "ra\n", 3);
+	// write(1, "ra\n", 3);
+	while(write(1, "ra\n", 3)!=3)
+		continue;
 }
 
 void	ft_sa(t_stack **a)
@@ -39,7 +41,9 @@ void	ft_sa(t_stack **a)
 	*a = (*a)->next;
 	tmp->next = (*a)->next;
 	(*a)->next = tmp;
-	write(1, "sa\n", 3);
+	while(write(1, "sa\n", 3) !=3)
+		continue;
+	// printf("sa\n");
 }
 
 void	ft_pa(t_stack **a, t_stack **b)
@@ -57,7 +61,9 @@ void	ft_pa(t_stack **a, t_stack **b)
 	first_b->next = *a;
 	first_b->prev = NULL;
 	*a = first_b;
-	write(1, "pa\n", 3);
+	while(write(1, "pa\n", 3) != 3)
+		continue;
+	// printf("pa\n");
 }
 
 void	ft_rra(t_stack **a)
@@ -78,7 +84,9 @@ void	ft_rra(t_stack **a)
 	last->next = *a;
 	(*a)->prev = last;
 	*a = last;
-	write(1, "rra\n", 4);
+	while(write(1, "rra\n", 4) !=4)
+		continue;
+	// printf("rra\n");
 }
 
 void	ft_ss(t_stack **a, t_stack **b)
@@ -101,5 +109,7 @@ void	ft_ss(t_stack **a, t_stack **b)
 		node_swap(top, top->next);
 		*b = top->prev;
 	}
-	ft_printf("ss\n");
+	while(write(1, "ss\n", 3)!=3)
+		continue;
+	// printf("ss\n");
 }

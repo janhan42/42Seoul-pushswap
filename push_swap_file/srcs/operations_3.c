@@ -6,16 +6,20 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/03 16:17:44 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/07 14:33:20 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 18:16:07 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+#include <unistd.h>
 
 void	ft_rb(t_stack **b)
 {
 	ft_rr_sub(b);
-	write(1, "rb\n", 3);
+	while(write(1, "rb\n",3) !=3)
+		continue;
+
+	// printf("rb\n");
 }
 
 void	ft_sb(t_stack **b)
@@ -27,7 +31,9 @@ void	ft_sb(t_stack **b)
 		return ;
 	node_swap(top, top->next);
 	*b = top->prev;
-	ft_printf("sb\n");
+	while(write(1, "sb\n", 3) != 3)
+		continue;
+
 }
 
 static void	node_swap_near(t_stack *a, t_stack *b)

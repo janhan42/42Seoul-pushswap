@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:40:31 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/07 13:25:27 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 17:55:08 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
+# include <stdio.h>
 # include "../../libft/libft.h"
 
 typedef struct s_stack
