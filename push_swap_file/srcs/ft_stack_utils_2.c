@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:16:13 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/07 17:26:31 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 19:21:50 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,22 @@
 t_stack *ft_find_max_addr(t_stack **stack)
 {
 	t_stack	*top;
-	t_stack	*res_idx;
+	t_stack	*res_addr;
 	int		temp;
 
 	top = *stack;
 	temp = top->index;
-	res_idx = top;
+	res_addr = top;
 	while (top)
 	{
 		if (temp < top->index)
 		{
 			temp = top->index;
-			res_idx = top;
+			res_addr = top;
 		}
 		top = top->next;
 	}
-	return (res_idx);
+	return (res_addr);
 }
 
 long ft_find_index(t_stack *a, int nbr, size_t *order)
@@ -76,10 +76,11 @@ t_stack	*ft_stack_new(int content)
 		ft_error();
 	new->nbr = content;
 	new->next = NULL;
+	new->prev = NULL;
 	new->index = -1;
 	return (new);
 }
-
+// 씨벌련 고치자 ㄹㅇ ㅋㅋ
 void	ft_add_back(t_stack **stack, t_stack *stack_new)
 {
 	t_stack	*last;

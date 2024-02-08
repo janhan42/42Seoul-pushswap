@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/26 20:56:53 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/08 18:19:13 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 18:56:23 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,7 @@
 
 void	ft_ra(t_stack **a)
 {
-	t_stack	*first;
-	t_stack	*last;
-
-	if (!*a || !(*a)->next)
-		return ;
-	first = *a;
-	last = ft_stacklast(*a);
-	*a = first->next;
-	(*a)->prev = NULL;
-	last->next = first;
-	first->prev = last;
-	first->next = NULL;
-	// write(1, "ra\n", 3);
+	ft_rr_sub(a);
 	while(write(1, "ra\n", 3)!=3)
 		continue;
 }

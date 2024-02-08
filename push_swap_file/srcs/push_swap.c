@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:44:09 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/08 10:22:32 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 19:20:25 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(int ac, char **av)
 	// print_index(&stack_a);
 	if (!ft_checksorted(stack_a))
 		ft_sort(&stack_a);
+	print_index(&stack_a);
 	ft_free(&stack_a);
 	return (0);
 }

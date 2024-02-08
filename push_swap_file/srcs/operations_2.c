@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/31 13:19:40 by yogun             #+#    #+#             */
-/*   Updated: 2024/02/08 18:18:22 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 19:11:06 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,19 @@ void	ft_rrr(t_stack **a, t_stack **b)
 
 void	ft_pb(t_stack **a, t_stack **b)
 {
-	t_stack	*to_top;
-	t_stack	*to_under;
+	t_stack *first_a;
 
-	if (*a == NULL)
+	if (!*a)
 		return ;
-	to_top = *a;
-	to_under = *b;
-	*a = to_top->next;
-	if (to_top->next != NULL)
-		to_top->next->prev = NULL;
-	to_top->next = to_under;
-	if (to_under != NULL)
-		to_under->prev = to_top;
-	*b = to_top;
+	first_a = *a;
+	*a = (*a)->next;
+	if (*a)
+		(*a)->prev = NULL;
+	if (*b)
+		(*b)->prev = first_a;
+	first_a->next = *b;
+	first_a->prev = NULL;
+	*b = first_a;
 	while(write(1,"pb\n", 3) != 3)
 		continue;
 	// printf("pb\n");

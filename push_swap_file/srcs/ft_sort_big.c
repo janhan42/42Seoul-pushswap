@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:54:03 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/08 12:39:11 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/08 19:16:25 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	rotation(t_stack **stack, int count_from_top, int count_from_bottom)
 // 우리가 처음 생각한 건 아래서 긁어올 때는 올리고 넘기니까 리소스가 1추가 된단 말야.
 // 근데 문제는 count_from_bottom이란 걸 우리가 두가지 의미로 사용함 -> 리소스 + 실제로 얼마나 떨어져있는지 이거리
 
-void optimize_rotation(t_stack **stack_a, int index, int chunk)
+void optimize_rotation(t_stack **stack_a, int count, int chunk)
 {
 	int size = ft_stacksize(*stack_a);
 	int mid = size / 2;
@@ -46,14 +46,14 @@ void optimize_rotation(t_stack **stack_a, int index, int chunk)
 		current = current->next;
 	tail = current;
 	current = *stack_a;
-	while (current && !(current->index < index + chunk))
+	while (current && !(current->index < count + chunk))
 	{
 		count_from_top++;
 		current = current->next;
 	}
 	head = current;
 	current = tail;
-	while (current && !(current->index < index + chunk))
+	while (current && !(current->index < count + chunk))
 	{
 		count_from_bottom++;
 		current = current->prev;
@@ -106,8 +106,9 @@ t_stack	**ft_sort_a(t_stack **stack_a, t_stack **stack_b)
 	b_size = ft_stacksize(*stack_b);
 	while (*stack_b)
 	{
-		ft_find_index(*stack_b, ft_max(*stack_b), &order);
-		if (order < ft_stacksize(*stack_b) / 2)
+		ft_find_index(*stack_b, ft_find_max_addr(stack_b)->index, &order);
+		// printf("order : %lu\n", order);
+		if (order <= ft_stacksize(*stack_b) / 2)
 		 	up_pa(stack_a, stack_b, ft_find_max_addr(stack_b));
 		else
 			down_pa(stack_a, stack_b, ft_find_max_addr(stack_b));
