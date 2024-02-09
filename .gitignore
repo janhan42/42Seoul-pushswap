@@ -1,3 +1,6 @@
 .DS*
 *.out
 *.o
+checker_Mac
+push_swap
+checker
