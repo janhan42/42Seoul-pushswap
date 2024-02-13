@@ -6,47 +6,46 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:44:50 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/14 07:31:25 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/14 08:18:25 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-#include <unistd.h>
 
-void	ft_rb(t_stack **b, int i)
+void	ft_rb(t_stack **stack_b, int i)
 {
-	ft_rr_sub(b);
+	ft_rr_sub(stack_b);
 	if (i == 1)
 		write(1, "rb\n", 3);
 }
 
-void	ft_sb(t_stack **b, int i)
+void	ft_sb(t_stack **stack_b, int i)
 {
 	t_stack	*top;
 
-	top = *b;
+	top = *stack_b;
 	if (top == NULL || top->next == NULL)
 		return ;
 	node_swap(top, top->next);
-	*b = top->prev;
+	*stack_b = top->prev;
 	if (i == 1)
 		write(1, "sb\n", 3);
 }
 
-static void	node_swap_near(t_stack *a, t_stack *b)
+static void	node_swap_near(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*first;
 	t_stack	*second;
 
-	if (a->next == b)
+	if (stack_a->next == stack_b)
 	{
-		first = a;
-		second = b;
+		first = stack_a;
+		second = stack_b;
 	}
 	else
 	{
-		first = b;
-		second = a;
+		first = stack_b;
+		second = stack_a;
 	}
 	first->next = second->next;
 	if (first->next != NULL)
@@ -56,47 +55,47 @@ static void	node_swap_near(t_stack *a, t_stack *b)
 	second->prev = NULL;
 }
 
-void	node_swap(t_stack *a, t_stack *b)
+void	node_swap(t_stack *stack_a, t_stack *stack_b)
 {
 	t_stack	*prev;
 	t_stack	*next;
 
-	if (a == NULL && b == NULL)
+	if (stack_a == NULL && stack_b == NULL)
 		return ;
-	else if (a->next == b || b->next == a)
-		node_swap_near(a, b);
+	else if (stack_a->next == stack_b || stack_b->next == stack_a)
+		node_swap_near(stack_a, stack_b);
 	else
 	{
-		prev = a->prev;
-		next = a->next;
-		a->next = b->next;
-		a->prev = b->prev;
-		b->next = next;
-		b->prev = prev;
-		if (b->next != NULL)
-			b->next->prev = b;
-		if (b->prev != NULL)
-			b->prev->next = b;
-		if (a->next != NULL)
-			a->next->prev = a;
-		if (a->prev != NULL)
-			a->prev->next = a;
+		prev = stack_a->prev;
+		next = stack_a->next;
+		stack_a->next = stack_b->next;
+		stack_a->prev = stack_b->prev;
+		stack_b->next = next;
+		stack_b->prev = prev;
+		if (stack_b->next != NULL)
+			stack_b->next->prev = stack_b;
+		if (stack_b->prev != NULL)
+			stack_b->prev->next = stack_b;
+		if (stack_a->next != NULL)
+			stack_a->next->prev = stack_a;
+		if (stack_a->prev != NULL)
+			stack_a->prev->next = stack_a;
 	}
 	return ;
 }
 
-void	ft_rr_sub(t_stack **a_top)
+void	ft_rr_sub(t_stack **stack_a)
 {
 	t_stack	*to_top;
 	t_stack	*to_bot;
 	t_stack	*temp;
 
-	temp = *a_top;
+	temp = *stack_a;
 	if (temp == NULL || temp->next == NULL)
 		return ;
 	to_top = temp->next;
 	to_bot = temp;
-	*a_top = to_top;
+	*stack_a = to_top;
 	to_top->prev = NULL;
 	while (temp->next != NULL)
 		temp = temp->next;

@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:54:03 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/09 12:44:10 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/14 07:54:08 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,10 @@ void	ft_sort(t_stack **stack_a)
 		ft_sa(stack_a, 1);
 	else if (size == 3)
 		ft_sort_three(stack_a);
+	else if (size == 4)
+		ft_sort_four(stack_a);
+	else if (size == 5)
+		ft_sort_five(stack_a);
 	else
 	{
 		stack_b = ft_sort_b(stack_a);

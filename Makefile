@@ -6,7 +6,7 @@
 #    By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/14 13:58:46 by janhan            #+#    #+#              #
-#    Updated: 2024/02/09 12:13:43 by janhan           ###   ########.fr        #
+#    Updated: 2024/02/14 07:49:59 by janhan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ SRCS_MAN		=	srcs/push_swap/ft_process.c \
 					srcs/push_swap/ft_stack_utils_2.c \
 					srcs/push_swap/ft_sort_big.c \
 					srcs/push_swap/ft_sort_utils.c	\
-					srcs/push_swap/ft_sort_three.c \
+					srcs/push_swap/ft_sort_case.c \
 					srcs/push_swap/ft_index.c		\
 					srcs/push_swap/ft_get_cunk.c
 OBJS_MAND		=	$(SRCS_MAN:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:44:09 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/14 07:32:18 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/14 08:14:05 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,29 +33,29 @@ t_stack	*ft_find_max_addr(t_stack **stack)
 	return (res_addr);
 }
 
-long	ft_find_index(t_stack *a, int nbr, size_t *order)
+long	ft_find_index(t_stack *stack_a, int nbr, size_t *order)
 {
 	int	i;
 
 	i = 0;
-	while (a->nbr != nbr)
+	while (stack_a->nbr != nbr)
 	{
 		i++;
-		a = a->next;
+		stack_a = stack_a->next;
 	}
 	if (order != NULL)
 		*order = i;
-	return (a->index);
+	return (stack_a->index);
 }
 
-long	ft_find_min_index(t_stack *a, int index)
+long	ft_find_min_index(t_stack *stack_a, int index)
 {
 	t_stack	*a_top;
 	int		chunk;
 	long	count;
 
-	a_top = a;
-	chunk = ft_get_cunk(&a);
+	a_top = stack_a;
+	chunk = ft_get_cunk(&stack_a);
 	count = 0;
 	while (a_top)
 	{

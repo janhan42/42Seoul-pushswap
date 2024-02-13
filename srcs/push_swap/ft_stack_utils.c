@@ -6,29 +6,29 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 11:02:09 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/14 07:32:14 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/14 08:14:30 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-t_stack	*ft_stacklast(t_stack *lst)
+t_stack	*ft_stacklast(t_stack *stack)
 {
-	if (!lst)
+	if (!stack)
 		return (NULL);
-	while (lst->next)
-		lst = lst->next;
-	return (lst);
+	while (stack->next)
+		stack = stack->next;
+	return (stack);
 }
 
-size_t	ft_stacksize(t_stack *lst)
+size_t	ft_stacksize(t_stack *stack)
 {
 	size_t	i;
 
 	i = 0;
-	while (lst)
+	while (stack)
 	{
-		lst = lst->next;
+		stack = stack->next;
 		i++;
 	}
 	return (i);
@@ -48,16 +48,16 @@ int	ft_min(t_stack *a)
 	return (i);
 }
 
-int	ft_max(t_stack *a)
+int	ft_max(t_stack *stack_a)
 {
 	int		i;
 
-	i = a->nbr;
-	while (a)
+	i = stack_a->nbr;
+	while (stack_a)
 	{
-		if (a->nbr > i)
-			i = a->nbr;
-		a = a->next;
+		if (stack_a->nbr > i)
+			i = stack_a->nbr;
+		stack_a = stack_a->next;
 	}
 	return (i);
 }

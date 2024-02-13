@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:50:09 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/14 07:32:49 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/14 08:13:03 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,24 +64,24 @@ static t_stack	*ft_sub_process(char **av)
 
 t_stack	*ft_process(int ac, char **av)
 {
-	t_stack	*a;
+	t_stack	*stack_a;
 	int		i;
 	int		j;
 
 	i = 1;
-	a = NULL;
+	stack_a = NULL;
 	if (ac < 2 || (ac == 2 && av[1][0] == '\0'))
 		ft_error();
 	if (ac == 2)
-		a = ft_sub_process(av);
+		stack_a = ft_sub_process(av);
 	else
 	{
 		while (i < ac)
 		{
 			j = ft_atoi2(av[i]);
-			ft_add_back(&a, ft_stack_new(j));
+			ft_add_back(&stack_a, ft_stack_new(j));
 			i++;
 		}
 	}
-	return (a);
+	return (stack_a);
 }

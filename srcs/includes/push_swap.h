@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:40:31 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/09 12:49:46 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/14 07:53:45 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,8 @@ void	ft_rr_sub(t_stack **a_top);
 /* SORT */
 void	ft_sort(t_stack **stack_a);
 void	ft_sort_three(t_stack **stack_a);
+void	ft_sort_four(t_stack **stack_a);
+void	ft_sort_five(t_stack **stack_a);
 void	down_pa(t_stack **a_top_p, t_stack **b_top_p, t_stack *to_find);
 void	up_pa(t_stack **a_top_p, t_stack **b_top_p, t_stack *to_find);
 #endif

@@ -6,7 +6,7 @@
 /*   By: janhan <janhan@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/07 10:59:42 by janhan            #+#    #+#             */
-/*   Updated: 2024/02/14 07:33:04 by janhan           ###   ########.fr       */
+/*   Updated: 2024/02/14 08:12:39 by janhan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@ void	ft_error(void)
 	exit(1);
 }
 
-void	ft_free(t_stack **lst)
+void	ft_free(t_stack **stack)
 {
 	t_stack	*tmp;
 
-	if (!lst)
+	if (!stack)
 		return ;
-	while (*lst)
+	while (*stack)
 	{
-		tmp = (*lst)->next;
-		(*lst)->nbr = 0;
-		free(*lst);
-		*lst = tmp;
+		tmp = (*stack)->next;
+		(*stack)->nbr = 0;
+		free(*stack);
+		*stack = tmp;
 	}
 }
